@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw52c6e8h77rj"]
+[gd_scene load_steps=5 format=3 uid="uid://dw52c6e8h77rj"]
 
 [ext_resource type="Texture2D" uid="uid://c117fae5xouui" path="res://assets/player.png" id="1_7w3bq"]
 [ext_resource type="Script" uid="uid://x61haxnqdhvc" path="res://scripts/player_dead.gd" id="1_mnmds"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mnmds"]
+bounce = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnmds"]
 size = Vector2(80, 80)
@@ -9,6 +12,7 @@ size = Vector2(80, 80)
 [node name="PlayerDead" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_mnmds")
 gravity_scale = 4.0
 script = ExtResource("1_mnmds")
 

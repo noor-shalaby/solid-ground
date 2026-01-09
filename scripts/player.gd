@@ -3,7 +3,9 @@ extends CharacterBody2D
 
 const WEIGHT: float = 4.0
 const SPEED: float = 600.0
-const JUMP_VELOCITY: float = -1500.0
+const ACCEL: float = 5000.0
+const DECEL: float = 3000.0
+const JUMP: float = -1500.0
 
 
 func _physics_process(delta: float) -> void:
@@ -11,12 +13,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * WEIGHT * delta
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP
 	
 	var dir: float = Input.get_axis("left", "right")
 	if dir:
-		velocity.x = SPEED * dir
+		velocity.x = move_toward(velocity.x, dir * SPEED, ACCEL * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, DECEL * delta)
 	
 	move_and_slide()

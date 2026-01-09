@@ -9,6 +9,11 @@ const JUMP: float = -1500.0
 const JUMP_CUT_MULTIPLYER: float = 0.5
 const COYOTE_TIME: float = 0.15
 
+const DEAD_BODY_SCENE: PackedScene = preload("res://scenes/player_dead.tscn")
+
+
+@onready var parent: Node2D = get_parent()
+
 
 func _physics_process(delta: float) -> void:
 	var coyote_timer: float
@@ -30,3 +35,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, DECEL * delta)
 	
 	move_and_slide()
+
+
+func die() -> void:
+	var dead_body: RigidBody2D = DEAD_BODY_SCENE.instantiate()
+	parent.call_deferred("add_child", dead_body)
+	dead_body.global_position = global_position
+	var bounce_direction: Vector2 = Vector2(randf_range(-2000, 2000), -2000) 
+	dead_body.apply_central_impulse(bounce_direction)
+	dead_body.angular_velocity = randf_range(-16.0, 16.0)
+	queue_free()
+
+
+func _on_hazard_detector_body_entered(_body: Node2D) -> void:
+	die()

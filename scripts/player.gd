@@ -7,13 +7,18 @@ const ACCEL: float = 5000.0
 const DECEL: float = 3000.0
 const JUMP: float = -1500.0
 const JUMP_CUT_MULTIPLYER: float = 0.5
+const COYOTE_TIME: float = 0.15
 
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
+	var coyote_timer: float
+	if is_on_floor():
+		coyote_timer = COYOTE_TIME
+	else:
 		velocity += get_gravity() * WEIGHT * delta
+		coyote_timer -= delta
 	
-	if Input.is_action_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and coyote_timer > 0:
 		velocity.y = JUMP
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= JUMP_CUT_MULTIPLYER

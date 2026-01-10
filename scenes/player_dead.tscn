@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw52c6e8h77rj"]
+[gd_scene load_steps=7 format=3 uid="uid://dw52c6e8h77rj"]
 
 [ext_resource type="Texture2D" uid="uid://c117fae5xouui" path="res://assets/player.png" id="1_7w3bq"]
+[ext_resource type="Shader" uid="uid://cykrrphw6mryp" path="res://resources/shaders/b&w.gdshader" id="1_58q2y"]
 [ext_resource type="Script" uid="uid://x61haxnqdhvc" path="res://scripts/player_dead.gd" id="1_mnmds"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mnmds"]
 bounce = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0gsot"]
+shader = ExtResource("1_58q2y")
+shader_parameter/bw_amount = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnmds"]
 size = Vector2(80, 80)
@@ -16,6 +21,7 @@ gravity_scale = 4.0
 script = ExtResource("1_mnmds")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0gsot")
 position = Vector2(0, -40)
 texture = ExtResource("1_7w3bq")
 

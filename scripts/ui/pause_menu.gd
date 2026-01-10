@@ -51,6 +51,7 @@ func unpause() -> void:
 	
 	if viewport.gui_get_focus_owner():
 		viewport.gui_get_focus_owner().release_focus()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	refresh_tween()
 	tween.tween_property(dim, "modulate:a", 0.0, dim.modulate.a * animation_duration_unpause)

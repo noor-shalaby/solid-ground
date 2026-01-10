@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://gxanohvbl7e1"]
+
+[ext_resource type="Texture2D" uid="uid://bw7nw666wjmes" path="res://assets/background.png" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://c11k50dvdlwo7" path="res://assets/montserrat_extrabold.otf" id="2_8ln24"]
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/button.tscn" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://pvs5iaw4i4eh" path="res://scripts/button_play.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://kj227nx4rsgf" path="res://scripts/button_quit.gd" id="4_wu84c"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l6cm7")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -533.0
+offset_top = -284.0
+offset_right = 533.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 128
+text = "SOLID GROUND"
+
+[node name="ButtonMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -60.0
+offset_right = 256.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="PlayButton" parent="ButtonMenu" instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+text = "Play"
+script = ExtResource("3_bqqt6")
+target_scene_path = "uid://p8bxjnfemtjy"
+
+[node name="QuitButton" parent="ButtonMenu" instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+text = "Quit
+"
+script = ExtResource("4_wu84c")

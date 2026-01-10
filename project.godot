@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Solid Ground"
-run/main_scene="uid://p8bxjnfemtjy"
+run/main_scene="uid://gxanohvbl7e1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://cvsx1sjwjnk8g"
 config/icon="uid://cvr5umn1mjtor"
@@ -19,6 +19,7 @@ config/icon="uid://cvr5umn1mjtor"
 [autoload]
 
 SceneTransitioner="*res://scenes/scene_transitioner.tscn"
+AudioManager="*res://scenes/audio_manager.tscn"
 
 [debug]
 

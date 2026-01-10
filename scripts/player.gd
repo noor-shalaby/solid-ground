@@ -12,6 +12,7 @@ const COYOTE_TIME: float = 0.15
 const DEAD_BODY_SCENE: PackedScene = preload("res://scenes/player_dead.tscn")
 
 @onready var parent: Node2D = get_parent()
+@onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("jump") and coyote_timer > 0:
 		velocity.y = JUMP
+		jump_sound.play()
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= JUMP_CUT_MULTIPLYER
 	

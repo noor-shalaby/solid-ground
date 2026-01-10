@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw52c6e8h77rj"]
+[gd_scene load_steps=8 format=3 uid="uid://dw52c6e8h77rj"]
 
 [ext_resource type="Texture2D" uid="uid://c117fae5xouui" path="res://assets/player.png" id="1_7w3bq"]
 [ext_resource type="Shader" uid="uid://cykrrphw6mryp" path="res://resources/shaders/b&w.gdshader" id="1_58q2y"]
 [ext_resource type="Script" uid="uid://x61haxnqdhvc" path="res://scripts/player_dead.gd" id="1_mnmds"]
+[ext_resource type="AudioStream" uid="uid://d3iufqou4j3k" path="res://assets/uh-oh.wav" id="4_0gsot"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mnmds"]
 bounce = 0.3
@@ -28,5 +29,8 @@ texture = ExtResource("1_7w3bq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_mnmds")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0gsot")
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

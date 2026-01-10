@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7pynfib6cqwl"]
+
+[ext_resource type="AudioStream" uid="uid://betqvfjduacen" path="res://assets/audio/cancel_3.wav" id="1_s5rny"]
+[ext_resource type="Script" uid="uid://mbdcf4p8w214" path="res://scripts/ui/sfx_oneshot.gd" id="2_bgepm"]
+
+[node name="ClickSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_s5rny")
+volume_db = 6.0
+autoplay = true
+script = ExtResource("2_bgepm")

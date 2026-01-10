@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gxanohvbl7e1"]
+[gd_scene load_steps=8 format=3 uid="uid://gxanohvbl7e1"]
 
 [ext_resource type="Texture2D" uid="uid://bw7nw666wjmes" path="res://assets/background.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://j1th87sh4kcl" path="res://scripts/ui/main_menu.gd" id="1_uhagc"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://pvs5iaw4i4eh" path="res://scripts/ui/button_play.gd" id="3_bqqt6"]
 [ext_resource type="Script" uid="uid://kj227nx4rsgf" path="res://scripts/ui/button_quit.gd" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://c7pynfib6cqwl" path="res://scenes/ui/back_sound.tscn" id="7_btxxm"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("init_focus_node")]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +16,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhagc")
-init_focus_node = NodePath("ButtonMenu/PlayButton")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -59,6 +59,7 @@ grow_vertical = 2
 theme_override_constants/separation = 8
 
 [node name="PlayButton" parent="ButtonMenu" instance=ExtResource("2_ekxnf")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 script = ExtResource("3_bqqt6")
@@ -69,3 +70,4 @@ layout_mode = 2
 text = "Quit
 "
 script = ExtResource("4_wu84c")
+sfx = ExtResource("7_btxxm")

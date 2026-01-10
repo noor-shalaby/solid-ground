@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://p8bxjnfemtjy"]
+[gd_scene load_steps=13 format=4 uid="uid://p8bxjnfemtjy"]
 
 [ext_resource type="Script" uid="uid://dcosmaogeblp0" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://odthubx5jovs" path="res://assets/tileset.png" id="1_uwrxv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csnba64dsq25g" path="res://scenes/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://0rqbsf1jd63k" path="res://scenes/objects/platform.tscn" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://cfjihj3e4ih2o" path="res://assets/spike_tileset.svg" id="5_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://53dba8egiepl" path="res://scenes/ui/pause_menu.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwrxv"]
 texture = ExtResource("1_uwrxv")
@@ -88,3 +89,5 @@ position = Vector2(1408, 416)
 
 [node name="Player" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(225, 832)
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_gee14")]

@@ -53,6 +53,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_yqjtg")
 
+[node name="PauseMenu" parent="." instance=ExtResource("8_gee14")]
+visible = false
+
 [node name="SpikeTraps" type="Node2D" parent="."]
 
 [node name="SpikeTrap" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
@@ -89,5 +92,3 @@ position = Vector2(1408, 416)
 
 [node name="Player" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(225, 832)
-
-[node name="PauseMenu" parent="." instance=ExtResource("8_gee14")]

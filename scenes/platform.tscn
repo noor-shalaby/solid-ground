@@ -1,14 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://0rqbsf1jd63k"]
+[gd_scene load_steps=6 format=3 uid="uid://0rqbsf1jd63k"]
 
+[ext_resource type="Script" uid="uid://bvrgnm4wf7iec" path="res://scripts/platform.gd" id="1_507ja"]
 [ext_resource type="Texture2D" uid="uid://xuool7xn5iws" path="res://assets/platform.png" id="1_ba0x2"]
+[ext_resource type="PackedScene" uid="uid://8ojh6vu5lokp" path="res://scenes/spike_trap.tscn" id="2_nlgqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlgqw"]
 size = Vector2(128, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_507ja"]
+size = Vector2(128, 64)
+
 [node name="Platform" type="AnimatableBody2D"]
+collision_mask = 0
+script = ExtResource("1_507ja")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ba0x2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nlgqw")
+
+[node name="SpikeTrap" parent="." instance=ExtResource("2_nlgqw")]
+show_behind_parent = true
+
+[node name="PopTrigger" parent="SpikeTrap" index="3"]
+enabled = false
+
+[node name="ChaseTrigger" parent="SpikeTrap" index="4"]
+enabled = false
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_507ja")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+
+[editable path="SpikeTrap"]

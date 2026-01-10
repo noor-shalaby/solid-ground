@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://cvsx1sjwjnk8g"
 config/icon="uid://cvr5umn1mjtor"
 
+[autoload]
+
+SceneTransitioner="*res://scenes/scene_transitioner.tscn"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1

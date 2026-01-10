@@ -14,4 +14,4 @@ func set_bw(value: float) -> void:
 
 func _on_sleeping_state_changed() -> void:
 	if sleeping:
-		get_tree().call_deferred("reload_current_scene")
+		SceneTransitioner.trans_to_scene()

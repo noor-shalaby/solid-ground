@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://p8bxjnfemtjy"]
+[gd_scene load_steps=12 format=4 uid="uid://p8bxjnfemtjy"]
 
+[ext_resource type="Script" uid="uid://dcosmaogeblp0" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://odthubx5jovs" path="res://assets/tileset.png" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bw7nw666wjmes" path="res://assets/background.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://8ojh6vu5lokp" path="res://scenes/spike_trap.tscn" id="2_p57ef"]
@@ -32,6 +33,7 @@ physics_layer_0/collision_mask = 0
 sources/2 = SubResource("TileSetAtlasSource_lbhrr")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_u5sy4")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

@@ -13,7 +13,7 @@ config_version=5
 config/name="Solid Ground"
 run/main_scene="uid://p8bxjnfemtjy"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://cvr5umn1mjtor"
 
 [debug]
 

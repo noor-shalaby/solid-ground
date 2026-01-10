@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4qhk"]
 size = Vector2(128, 64)
 
-[node name="SpikeTrap" type="AnimatableBody2D"]
+[node name="SpikeTrap" type="Area2D"]
 script = ExtResource("1_u4qhk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

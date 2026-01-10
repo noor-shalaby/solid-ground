@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv0b8mfiyro15"]
 
-[ext_resource type="Script" uid="uid://dakhdt3ndfbd3" path="res://scripts/buttona.gd" id="1_di1ux"]
+[ext_resource type="Script" uid="uid://dakhdt3ndfbd3" path="res://scripts/ui/buttona.gd" id="1_di1ux"]
 [ext_resource type="FontFile" uid="uid://c11k50dvdlwo7" path="res://assets/montserrat_extrabold.otf" id="1_vgxan"]
 
 [node name="Button" type="Button"]

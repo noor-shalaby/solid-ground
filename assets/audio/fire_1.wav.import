@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cd7iwhtia74dm"
-path="res://.godot/imported/chime.wav-572339dea54d808a6653250142ff5541.sample"
+uid="uid://b55x2rgif0nsf"
+path="res://.godot/imported/fire_1.wav-174ff0717de4aeb4842bcc433a39e920.sample"
 
 [deps]
 
-source_file="res://assets/chime.wav"
-dest_files=["res://.godot/imported/chime.wav-572339dea54d808a6653250142ff5541.sample"]
+source_file="res://assets/audio/fire_1.wav"
+dest_files=["res://.godot/imported/fire_1.wav-174ff0717de4aeb4842bcc433a39e920.sample"]
 
 [params]
 

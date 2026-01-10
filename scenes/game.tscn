@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dcosmaogeblp0" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://odthubx5jovs" path="res://assets/tileset.png" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bw7nw666wjmes" path="res://assets/background.png" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://8ojh6vu5lokp" path="res://scenes/spike_trap.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://8ojh6vu5lokp" path="res://scenes/objects/spike_trap.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://csnba64dsq25g" path="res://scenes/player.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://0rqbsf1jd63k" path="res://scenes/platform.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://0rqbsf1jd63k" path="res://scenes/objects/platform.tscn" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://cfjihj3e4ih2o" path="res://assets/spike_tileset.svg" id="5_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwrxv"]

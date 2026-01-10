@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://qjhdae07jahd"]
 
-[ext_resource type="Script" uid="uid://ccgwll2vuhe4w" path="res://scripts/spike.gd" id="1_7a7y0"]
+[ext_resource type="Script" uid="uid://ccgwll2vuhe4w" path="res://scripts/objects/spike.gd" id="1_7a7y0"]
 [ext_resource type="Texture2D" uid="uid://bwao1skhkju1h" path="res://assets/spike.svg" id="2_d2mqm"]
-[ext_resource type="AudioStream" uid="uid://b55x2rgif0nsf" path="res://assets/fire_1.wav" id="3_d2mqm"]
+[ext_resource type="AudioStream" uid="uid://b55x2rgif0nsf" path="res://assets/audio/fire_1.wav" id="3_d2mqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4qhk"]
 size = Vector2(128, 64)

@@ -18,8 +18,8 @@ config/icon="uid://cvr5umn1mjtor"
 
 [autoload]
 
-SceneTransitioner="*res://scenes/scene_transitioner.tscn"
-AudioManager="*res://scenes/audio_manager.tscn"
+SceneTransitioner="*res://scenes/autoload/scene_transitioner.tscn"
+AudioManager="*res://scenes/autoload/audio_manager.tscn"
 
 [debug]
 

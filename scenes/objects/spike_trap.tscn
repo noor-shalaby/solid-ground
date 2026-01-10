@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8ojh6vu5lokp"]
 
-[ext_resource type="PackedScene" uid="uid://qjhdae07jahd" path="res://scenes/spike.tscn" id="1_sjvdi"]
-[ext_resource type="Script" uid="uid://1hapi6q3g8kh" path="res://scripts/spike_trap.gd" id="1_u4qhk"]
+[ext_resource type="PackedScene" uid="uid://qjhdae07jahd" path="res://scenes/objects/spike.tscn" id="1_sjvdi"]
+[ext_resource type="Script" uid="uid://1hapi6q3g8kh" path="res://scripts/objects/spike_trap.gd" id="1_u4qhk"]
 
 [node name="SpikeTrap" instance=ExtResource("1_sjvdi")]
 script = ExtResource("1_u4qhk")

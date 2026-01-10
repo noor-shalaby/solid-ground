@@ -11,7 +11,6 @@ const COYOTE_TIME: float = 0.15
 
 const DEAD_BODY_SCENE: PackedScene = preload("res://scenes/player_dead.tscn")
 
-
 @onready var parent: Node2D = get_parent()
 
 
@@ -48,4 +47,7 @@ func die() -> void:
 
 
 func _on_hazard_detector_body_entered(_body: Node2D) -> void:
+	die()
+
+func _on_hazard_detector_area_entered(_area: Area2D) -> void:
 	die()

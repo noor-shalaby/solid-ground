@@ -29,4 +29,5 @@ collision_mask = 4
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_qhqgy")
 
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="body_entered" from="HazardDetector" to="." method="_on_hazard_detector_body_entered"]

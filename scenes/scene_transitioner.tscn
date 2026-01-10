@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3pulmm6p27l7"]
+[gd_scene load_steps=3 format=3 uid="uid://c3pulmm6p27l7"]
 
 [ext_resource type="Script" uid="uid://bhs11k508ynsc" path="res://scripts/scene_transitioner.gd" id="1_as28u"]
+[ext_resource type="AudioStream" uid="uid://cd7iwhtia74dm" path="res://assets/chime.wav" id="2_720aq"]
 
 [node name="SceneTransitioner" type="CanvasLayer"]
 process_mode = 3
@@ -14,3 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TransSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_720aq")

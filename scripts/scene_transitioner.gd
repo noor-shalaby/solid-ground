@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var scene_tree: SceneTree = get_tree()
 @onready var scene_root: Node = $/root
 @onready var dim: ColorRect = $Dim
+@onready var tran_sound: AudioStreamPlayer2D = $TransSound
 
 var tween: Tween
 
@@ -16,6 +17,7 @@ func _ready() -> void:
 
 func trans_to_scene(scene_path: String = "") -> void:
 	scene_tree.paused = true
+	tran_sound.play()
 	
 	show()
 	reset_tween()

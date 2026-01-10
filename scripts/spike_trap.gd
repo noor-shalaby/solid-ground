@@ -13,7 +13,9 @@ var player: CharacterBody2D = null
 
 
 func _ready() -> void:
-	chase_trigger.enabled = chase
+	super()
+	if pop_dir == POP_DIRS.RIGHT or pop_dir == POP_DIRS.LEFT:
+		pop_trigger.target_position.y = -128
 
 
 func _physics_process(delta: float) -> void:
@@ -26,7 +28,10 @@ func _physics_process(delta: float) -> void:
 		is_chasing = true
 		chase_trigger.set_deferred("enabled", false)
 	if is_chasing and player:
-		position.x = move_toward(position.x, player.position.x, SPEED * delta)
+		if pop_dir == POP_DIRS.UP or pop_dir == POP_DIRS.DOWN:
+			position.x = move_toward(position.x, player.position.x, SPEED * delta)
+		else:
+			position.y = move_toward(position.y, player.position.y, SPEED * delta)
 
 
 func pop() -> void:

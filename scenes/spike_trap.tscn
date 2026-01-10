@@ -5,9 +5,10 @@
 
 [node name="SpikeTrap" instance=ExtResource("1_sjvdi")]
 script = ExtResource("1_u4qhk")
+chase = false
 
 [node name="PopTrigger" type="RayCast2D" parent="." index="3"]
-position = Vector2(-64, 32)
+position = Vector2(0, 32)
 target_position = Vector2(0, -512)
 collision_mask = 2
 

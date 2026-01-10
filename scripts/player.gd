@@ -13,6 +13,7 @@ const DEAD_BODY_SCENE: PackedScene = preload("res://scenes/player_dead.tscn")
 
 @onready var parent: Node2D = get_parent()
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var land_sound: AudioStreamPlayer2D = $LandSound
 
 
 func _physics_process(delta: float) -> void:

@@ -6,7 +6,7 @@ extends RigidBody2D
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 func _ready() -> void:
-	create_tween().tween_method(set_bw, 0.0, 1.0, 0.2)
+	create_tween().tween_method(set_bw, 0.0, 1.0, death_sound.stream.get_length())
 	death_sound.play()
 
 

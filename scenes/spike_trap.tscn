@@ -1,33 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://8ojh6vu5lokp"]
+[gd_scene load_steps=3 format=3 uid="uid://8ojh6vu5lokp"]
 
-[ext_resource type="Texture2D" uid="uid://bwao1skhkju1h" path="res://assets/spike.svg" id="1_sjvdi"]
+[ext_resource type="PackedScene" uid="uid://qjhdae07jahd" path="res://scenes/spike.tscn" id="1_sjvdi"]
 [ext_resource type="Script" uid="uid://1hapi6q3g8kh" path="res://scripts/spike_trap.gd" id="1_u4qhk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4qhk"]
-size = Vector2(128, 64)
-
-[node name="SpikeTrap" type="Area2D"]
-collision_layer = 4
-collision_mask = 0
+[node name="SpikeTrap" instance=ExtResource("1_sjvdi")]
 script = ExtResource("1_u4qhk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-32, 0)
-texture = ExtResource("1_sjvdi")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(32, 0)
-texture = ExtResource("1_sjvdi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_u4qhk")
-
-[node name="PopTrigger" type="RayCast2D" parent="."]
+[node name="PopTrigger" type="RayCast2D" parent="." index="3"]
 position = Vector2(-64, 32)
 target_position = Vector2(0, -512)
 collision_mask = 2
 
-[node name="ChaseTrigger" type="RayCast2D" parent="."]
+[node name="ChaseTrigger" type="RayCast2D" parent="." index="4"]
 position = Vector2(64, 32)
 target_position = Vector2(0, -512)
 collision_mask = 2

@@ -1,4 +1,4 @@
-extends Area2D
+extends Spike
 
 
 @export var chase: bool = false
@@ -30,7 +30,6 @@ func _physics_process(delta: float) -> void:
 
 
 func pop() -> void:
+	super()
 	player = pop_trigger.get_collider()
-	var tween: Tween = create_tween()
-	tween.tween_property(self, "position:y", position.y - 64, 0.05)
 	pop_trigger.set_deferred("enabled", false)

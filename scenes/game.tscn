@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bw7nw666wjmes" path="res://assets/background.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://8ojh6vu5lokp" path="res://scenes/spike_trap.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://csnba64dsq25g" path="res://scenes/player.tscn" id="3_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://bwao1skhkju1h" path="res://assets/spike.svg" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://0rqbsf1jd63k" path="res://scenes/platform.tscn" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://cfjihj3e4ih2o" path="res://assets/spike_tileset.svg" id="5_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwrxv"]
 texture = ExtResource("1_uwrxv")
@@ -20,17 +20,23 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_uwrxv")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
-texture = ExtResource("4_lbhrr")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
+texture = ExtResource("5_u5sy4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_iywne"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
-sources/2 = SubResource("TileSetAtlasSource_lbhrr")
+sources/0 = SubResource("TileSetAtlasSource_gee14")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_u5sy4")
@@ -61,7 +67,7 @@ tile_map_data = PackedByteArray("AAAMAAAAAQAAAAAAAAAMAAEAAQAAAAAAAAANAAAAAQAAAAA
 tile_set = SubResource("TileSet_yqjtg")
 
 [node name="Spikes" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAKABAAAgAAAAAAAAALABAAAgAAAAAAAAAMABAAAgAAAAAAAAANABAAAgAAAAAAAAAOABAAAgAAAAAAAAAPABAAAgAAAAAAAAAQABAAAgAAAAAAAAARABAAAgAAAAAAAAASABAAAgAAAAAAAAATABAAAgAAAAAAAAAUABAAAgAAAAAAAAAVABAAAgAAAAAAAAAWABAAAgAAAAAAAAAXABAAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAKABAAAAAAAAAAAAALABAAAAAAAAAAAAAMABAAAAAAAAAAAAANABAAAAAAAAAAAAAOABAAAAAAAAAAAAAPABAAAAAAAAAAAAAQABAAAAAAAAAAAAARABAAAAAAAAAAAAASABAAAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAAVABAAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iywne")
 
 [node name="Platforms" type="Node2D" parent="."]

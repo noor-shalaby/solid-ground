@@ -27,3 +27,4 @@ shape = SubResource("RectangleShape2D_u4qhk")
 
 [node name="PopSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_d2mqm")
+volume_db = -4.0

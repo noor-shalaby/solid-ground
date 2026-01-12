@@ -11,6 +11,8 @@ bounce = 0.3
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0gsot"]
 shader = ExtResource("1_58q2y")
 shader_parameter/bw_amount = 0.0
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnmds"]
 size = Vector2(80, 80)

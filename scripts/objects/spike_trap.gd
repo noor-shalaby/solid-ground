@@ -15,7 +15,6 @@ var player: CharacterBody2D = null
 
 
 func _ready() -> void:
-	super()
 	pop_trigger.target_position.y = -trigger_length
 	chase_trigger.target_position.y = -trigger_length
 

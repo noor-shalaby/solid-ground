@@ -12,7 +12,7 @@ const COYOTE_TIME: float = 0.15
 const DEATH_MAX_IMPULSE: float = 2000.0
 var death_bounce_impulse: Vector2 = Vector2(randf_range(-DEATH_MAX_IMPULSE, DEATH_MAX_IMPULSE), -DEATH_MAX_IMPULSE)
 
-const DEAD_BODY_SCENE: PackedScene = preload("res://scenes/player_dead.tscn")
+const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_body_scene)
 
 @onready var parent: Node2D = get_parent()
 @onready var hazard_detector: Area2D = $HazardDetector

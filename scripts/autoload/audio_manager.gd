@@ -1,8 +1,8 @@
 extends Node
 
 
-const CLICK_SOUND_SCENE: PackedScene = preload("uid://dbjd5elpu7hmv")
-const BACK_SOUND_SCENE: PackedScene = preload("uid://c7pynfib6cqwl")
+const CLICK_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS.click_sound_scene)
+const BACK_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS.back_sound_scene)
 
 var ambient_fade_out: float = 0.3
 

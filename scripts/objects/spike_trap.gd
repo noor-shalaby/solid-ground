@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 
 func pop() -> void:
 	super()
+	
 	player = pop_trigger.get_collider()
 	pop_trigger.set_deferred("enabled", false)
 	if chase:

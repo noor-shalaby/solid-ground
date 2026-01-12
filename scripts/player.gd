@@ -61,14 +61,14 @@ func _on_hazard_detector_area_entered(_area: Area2D) -> void:
 		match _area.pop_dir:
 			@warning_ignore("unsafe_property_access")
 			_area.POP_DIRS.UP:
-				death_bounce_impulse = Vector2(randf_range(-DEATH_MAX_IMPULSE, DEATH_MAX_IMPULSE), -DEATH_MAX_IMPULSE)
+				death_bounce_impulse = Vector2(randf_range(-DEATH_MAX_IMPULSE/2, DEATH_MAX_IMPULSE/2), -DEATH_MAX_IMPULSE)
 			@warning_ignore("unsafe_property_access")
 			_area.POP_DIRS.DOWN:
-				death_bounce_impulse = Vector2(randf_range(-DEATH_MAX_IMPULSE, DEATH_MAX_IMPULSE), DEATH_MAX_IMPULSE)
+				death_bounce_impulse = Vector2(randf_range(-DEATH_MAX_IMPULSE/2, DEATH_MAX_IMPULSE/2), DEATH_MAX_IMPULSE)
 			@warning_ignore("unsafe_property_access")
 			_area.POP_DIRS.LEFT:
-				death_bounce_impulse = Vector2(-DEATH_MAX_IMPULSE, randf_range(-DEATH_MAX_IMPULSE, DEATH_MAX_IMPULSE))
+				death_bounce_impulse = Vector2(-DEATH_MAX_IMPULSE, randf_range(0, DEATH_MAX_IMPULSE/2))
 			@warning_ignore("unsafe_property_access")
 			_area.POP_DIRS.RIGHT:
-				death_bounce_impulse = Vector2(DEATH_MAX_IMPULSE, randf_range(-DEATH_MAX_IMPULSE, DEATH_MAX_IMPULSE))
+				death_bounce_impulse = Vector2(DEATH_MAX_IMPULSE, randf_range(0, DEATH_MAX_IMPULSE/2))
 	die()

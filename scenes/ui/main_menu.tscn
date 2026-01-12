@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://j1th87sh4kcl" path="res://scripts/ui/main_menu.gd" id="1_uhagc"]
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://pvs5iaw4i4eh" path="res://scripts/ui/button_play.gd" id="3_bqqt6"]
-[ext_resource type="FontFile" uid="uid://dy2qo37iqqdry" path="res://assets/Montserrat-ExtraBold.ttf" id="3_btxxm"]
+[ext_resource type="FontFile" uid="uid://bj0kn6qhkgasi" path="res://assets/Montserrat-Black.ttf" id="3_btxxm"]
 [ext_resource type="Script" uid="uid://kj227nx4rsgf" path="res://scripts/ui/button_quit.gd" id="4_wu84c"]
 [ext_resource type="PackedScene" uid="uid://c7pynfib6cqwl" path="res://scenes/ui/back_sound.tscn" id="7_btxxm"]
 

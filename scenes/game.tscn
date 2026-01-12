@@ -65,6 +65,7 @@ trigger_length = 128.0
 [node name="SpikeTrap2" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(1728, 544)
 chase = true
+trigger_length = 320.0
 
 [node name="SpikeTrap3" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(1888, 192)

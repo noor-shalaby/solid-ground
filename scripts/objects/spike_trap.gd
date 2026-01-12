@@ -2,7 +2,7 @@ extends Spike
 
 
 @export var chase: bool = false
-@export var trigger_length: float = 288
+@export var trigger_length: float = 128
 
 const SPEED: float = 1000.0
 

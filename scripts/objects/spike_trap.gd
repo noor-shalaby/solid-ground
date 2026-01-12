@@ -2,6 +2,7 @@ extends Spike
 
 
 @export var chase: bool = false
+@export var trigger_length: float = 288
 
 const SPEED: float = 1000.0
 
@@ -10,6 +11,12 @@ const SPEED: float = 1000.0
 
 var is_chasing: bool = false
 var player: CharacterBody2D = null
+
+
+func _ready() -> void:
+	super()
+	pop_trigger.target_position.y = -trigger_length
+	chase_trigger.target_position.y = -trigger_length
 
 
 func _physics_process(delta: float) -> void:

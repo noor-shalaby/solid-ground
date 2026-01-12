@@ -6,13 +6,14 @@
 [node name="SpikeTrap" instance=ExtResource("1_sjvdi")]
 script = ExtResource("1_u4qhk")
 chase = false
+trigger_length = 288.0
 
 [node name="PopTrigger" type="RayCast2D" parent="." index="3"]
 position = Vector2(0, 32)
-target_position = Vector2(0, -128)
+target_position = Vector2(0, -288)
 collision_mask = 2
 
 [node name="ChaseTrigger" type="RayCast2D" parent="." index="4"]
 position = Vector2(64, 32)
-target_position = Vector2(0, -128)
+target_position = Vector2(0, -288)
 collision_mask = 2

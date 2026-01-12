@@ -60,6 +60,7 @@ visible = false
 
 [node name="SpikeTrap" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(1408, 416)
+trigger_length = 128.0
 
 [node name="SpikeTrap2" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(1728, 544)
@@ -68,6 +69,7 @@ chase = true
 [node name="SpikeTrap3" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(1888, 192)
 rotation = -1.5707964
+trigger_length = 128.0
 pop_dir = 2
 
 [node name="TileMap" type="TileMapLayer" parent="."]

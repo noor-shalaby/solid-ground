@@ -5,8 +5,12 @@
 
 [node name="SpikeTrap" instance=ExtResource("1_sjvdi")]
 script = ExtResource("1_u4qhk")
-chase = false
 trigger_length = 1.0
+chase = false
+chase_limit_up = 0
+chase_limit_down = 0
+chase_limit_left = 0
+chase_limit_right = 0
 
 [node name="PopTrigger" type="RayCast2D" parent="." index="3"]
 position = Vector2(0, -32)

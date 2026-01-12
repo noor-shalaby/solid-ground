@@ -2,7 +2,7 @@ extends AnimatableBody2D
 
 
 @export var is_trap: bool = false
-@export var spike_trigger: int = 2
+@export var spike_trigger: int = 1
 
 @onready var spike: Area2D = $Spike
 @onready var player_detector: Area2D = $PlayerDetector

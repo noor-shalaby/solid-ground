@@ -106,6 +106,7 @@ position = Vector2(768, 672)
 [node name="Platform2" parent="Platforms" instance=ExtResource("5_iywne")]
 position = Vector2(1088, 544)
 is_trap = true
+spike_trigger = 2
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("5_iywne")]
 position = Vector2(1408, 416)

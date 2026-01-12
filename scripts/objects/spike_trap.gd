@@ -2,7 +2,7 @@ extends Spike
 
 
 @export var chase: bool = false
-@export var trigger_length: int = Constants.TILE_SIZE * 2
+@export_range(0.0, 30.0, 1.0, "suffix:tiles") var trigger_length: float = 1
 
 const SPEED: float = 1000.0
 
@@ -15,7 +15,7 @@ var player: CharacterBody2D = null
 
 
 func _ready() -> void:
-	pop_trigger.target_position.y = -trigger_length
+	pop_trigger.target_position.y = -trigger_length * Constants.TILE_SIZE
 	chase_trigger.target_position.y = -trigger_length
 
 

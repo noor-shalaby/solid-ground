@@ -64,6 +64,7 @@ layout_mode = 2
 text = "Play"
 script = ExtResource("3_bqqt6")
 target_scene_path = "uid://p8bxjnfemtjy"
+sfx = null
 
 [node name="QuitButton" parent="ButtonMenu" instance=ExtResource("2_ekxnf")]
 layout_mode = 2

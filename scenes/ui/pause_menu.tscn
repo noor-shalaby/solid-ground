@@ -61,6 +61,7 @@ layout_mode = 2
 text = "Main Menu"
 script = ExtResource("4_8uki6")
 target_scene_path = "uid://gxanohvbl7e1"
+sfx = null
 
 [node name="QuitButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2

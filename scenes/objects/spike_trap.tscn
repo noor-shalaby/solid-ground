@@ -9,10 +9,10 @@ chase = false
 
 [node name="PopTrigger" type="RayCast2D" parent="." index="3"]
 position = Vector2(0, 32)
-target_position = Vector2(0, -512)
+target_position = Vector2(0, -128)
 collision_mask = 2
 
 [node name="ChaseTrigger" type="RayCast2D" parent="." index="4"]
 position = Vector2(64, 32)
-target_position = Vector2(0, -512)
+target_position = Vector2(0, -128)
 collision_mask = 2

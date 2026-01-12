@@ -12,12 +12,6 @@ var is_chasing: bool = false
 var player: CharacterBody2D = null
 
 
-func _ready() -> void:
-	super()
-	if pop_dir == POP_DIRS.RIGHT or pop_dir == POP_DIRS.LEFT:
-		pop_trigger.target_position.y = -128
-
-
 func _physics_process(delta: float) -> void:
 	if pop_trigger.is_colliding():
 		pop()

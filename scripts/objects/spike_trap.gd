@@ -2,7 +2,7 @@ extends Spike
 
 
 @export var chase: bool = false
-@export var trigger_length: float = 128
+@export var trigger_length: int = Constants.TILE_SIZE * 2
 
 const SPEED: float = 1000.0
 

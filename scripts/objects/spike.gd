@@ -16,11 +16,11 @@ func pop() -> void:
 	var tween: Tween = create_tween()
 	match pop_dir:
 		POP_DIRS.UP:
-			tween.tween_property(self, "position:y", position.y - 64, 0.05)
+			tween.tween_property(self, "position:y", position.y - Constants.TILE_SIZE, 0.05)
 		POP_DIRS.DOWN:
-			tween.tween_property(self, "position:y", position.y + 64, 0.05)
+			tween.tween_property(self, "position:y", position.y + Constants.TILE_SIZE, 0.05)
 		POP_DIRS.LEFT:
-			tween.tween_property(self, "position:x", position.x - 64, 0.05)
+			tween.tween_property(self, "position:x", position.x - Constants.TILE_SIZE, 0.05)
 		POP_DIRS.RIGHT:
-			tween.tween_property(self, "position:x", position.x + 64, 0.05)
+			tween.tween_property(self, "position:x", position.x + Constants.TILE_SIZE, 0.05)
 	pop_sound.play()

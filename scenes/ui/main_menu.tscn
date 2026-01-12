@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bw7nw666wjmes" path="res://assets/background.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://j1th87sh4kcl" path="res://scripts/ui/main_menu.gd" id="1_uhagc"]
-[ext_resource type="FontFile" uid="uid://c11k50dvdlwo7" path="res://assets/montserrat_extrabold.otf" id="2_8ln24"]
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://pvs5iaw4i4eh" path="res://scripts/ui/button_play.gd" id="3_bqqt6"]
+[ext_resource type="FontFile" uid="uid://dy2qo37iqqdry" path="res://assets/Montserrat-ExtraBold.ttf" id="3_btxxm"]
 [ext_resource type="Script" uid="uid://kj227nx4rsgf" path="res://scripts/ui/button_quit.gd" id="4_wu84c"]
 [ext_resource type="PackedScene" uid="uid://c7pynfib6cqwl" path="res://scenes/ui/back_sound.tscn" id="7_btxxm"]
 
@@ -39,7 +39,7 @@ offset_right = 533.0
 offset_bottom = -127.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_fonts/font = ExtResource("3_btxxm")
 theme_override_font_sizes/font_size = 128
 text = "SOLID GROUND"
 

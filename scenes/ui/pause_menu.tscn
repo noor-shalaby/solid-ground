@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://53dba8egiepl"]
 
 [ext_resource type="Script" uid="uid://cwxmg27s6vtp8" path="res://scripts/ui/pause_menu.gd" id="1_6tw0m"]
-[ext_resource type="FontFile" uid="uid://c11k50dvdlwo7" path="res://assets/montserrat_extrabold.otf" id="2_f6eus"]
+[ext_resource type="FontFile" uid="uid://dy2qo37iqqdry" path="res://assets/Montserrat-ExtraBold.ttf" id="2_8fwbo"]
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_f6eus"]
 [ext_resource type="Script" uid="uid://cogtwyr4ly3b" path="res://scripts/ui/button_restart.gd" id="4_8fwbo"]
 [ext_resource type="Script" uid="uid://pvs5iaw4i4eh" path="res://scripts/ui/button_play.gd" id="4_8uki6"]
@@ -41,7 +41,7 @@ layout_mode = 2
 [node name="PausedLabel" type="Label" parent="Dim/Panel/Margin/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_fonts/font = ExtResource("2_8fwbo")
 theme_override_font_sizes/font_size = 64
 text = "Paused"
 horizontal_alignment = 1
@@ -50,7 +50,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
-sfx = null
 
 [node name="RestartButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2

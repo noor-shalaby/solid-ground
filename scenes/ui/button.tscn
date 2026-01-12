@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv0b8mfiyro15"]
 
+[ext_resource type="FontFile" uid="uid://cb4o2e3v58eue" path="res://assets/Montserrat-Bold.ttf" id="1_3xo2w"]
 [ext_resource type="Script" uid="uid://dakhdt3ndfbd3" path="res://scripts/ui/buttona.gd" id="1_di1ux"]
-[ext_resource type="FontFile" uid="uid://c11k50dvdlwo7" path="res://assets/montserrat_extrabold.otf" id="1_vgxan"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(512, 80)
 offset_right = 8.0
 offset_bottom = 8.0
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_vgxan")
+theme_override_fonts/font = ExtResource("1_3xo2w")
 theme_override_font_sizes/font_size = 32
 text = "Button"
 script = ExtResource("1_di1ux")

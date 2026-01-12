@@ -59,34 +59,31 @@ visible = false
 [node name="SpikeTraps" type="Node2D" parent="."]
 
 [node name="SpikeTrap" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
-position = Vector2(1408, 416)
-
-[node name="SpikeTrap2" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(1728, 544)
 chase = true
 trigger_length = 320.0
 
-[node name="SpikeTrap3" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
+[node name="SpikeTrap2" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(1888, 192)
 rotation = -1.5707964
 pop_dir = 2
 
-[node name="SpikeTrap4" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
+[node name="SpikeTrap3" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(576, 352)
 rotation = -3.1415927
 pop_dir = 1
 
-[node name="SpikeTrap5" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
+[node name="SpikeTrap4" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(608, 320)
 rotation = -4.712389
 pop_dir = 3
 
-[node name="SpikeTrap6" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
+[node name="SpikeTrap5" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(608, 192)
 rotation = -4.712389
 pop_dir = 3
 
-[node name="SpikeTrap7" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
+[node name="SpikeTrap6" parent="SpikeTraps" instance=ExtResource("2_p57ef")]
 position = Vector2(64, 864)
 rotation = -6.2831855
 
@@ -110,6 +107,7 @@ spike_trigger = 2
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("5_iywne")]
 position = Vector2(1408, 416)
+is_trap = true
 
 [node name="Player" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(225, 832)

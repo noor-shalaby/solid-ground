@@ -6,6 +6,7 @@ extends Spike
 
 const SPEED: float = 1000.0
 
+@onready var scene_tree: SceneTree = get_tree()
 @onready var pop_trigger: RayCast2D = $PopTrigger
 @onready var chase_trigger: RayCast2D = $ChaseTrigger
 
@@ -26,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	if not chase:
 		return
 	if chase_trigger.is_colliding():
+		await scene_tree.create_timer(0.1).timeout
 		is_chasing = true
 		chase_trigger.set_deferred("enabled", false)
 	if is_chasing and player:

@@ -14,5 +14,5 @@ func _ready() -> void:
 
 func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 	spike_trigger -= 1
-	if spike_trigger <= 0:
+	if spike_trigger == 0:
 		spike.pop()

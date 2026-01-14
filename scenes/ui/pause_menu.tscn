@@ -54,20 +54,17 @@ text = "Resume"
 layout_mode = 2
 text = "Restart"
 script = ExtResource("4_8fwbo")
-sfx = null
 
 [node name="MainMenuButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2
 text = "Main Menu"
 script = ExtResource("4_8uki6")
 target_scene_path = "uid://gxanohvbl7e1"
-sfx = null
 
 [node name="QuitButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2
 text = "Quit
 "
 script = ExtResource("5_0bnpd")
-sfx = null
 
 [connection signal="pressed" from="Dim/Panel/Margin/Menu/ResumeButton" to="." method="_on_resume_button_pressed"]

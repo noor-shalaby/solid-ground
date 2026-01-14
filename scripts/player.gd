@@ -18,7 +18,6 @@ const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_bod
 @onready var hazard_detector: Area2D = $HazardDetector
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var jump_sound_default_vol: float = jump_sound.volume_linear
-@onready var land_sound: AudioStreamPlayer2D = $LandSound
 
 var cam_ctrl: Node2D
 

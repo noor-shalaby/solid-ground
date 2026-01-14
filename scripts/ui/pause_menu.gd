@@ -44,7 +44,7 @@ func _input(event: InputEvent) -> void:
 		Settings.fullscreen = !Settings.fullscreen
 		EventBus.emit_signal("fullscreen_toggled")
 	
-	if viewport.gui_get_focus_owner():
+	if viewport.gui_get_focus_owner() or not current_screen:
 		return
 	if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right") or event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_focus_next"):
 		current_screen.init_focus_node.grab_focus()

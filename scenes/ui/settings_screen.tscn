@@ -171,7 +171,6 @@ focus_neighbor_bottom = NodePath("../../../../../Row2/ControlsSettings/VBoxConta
 focus_next = NodePath("../../../../AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")
 focus_previous = NodePath("../ScreenshakeSetting/ScreenshakeCheck")
 max_value = 4.0
-script = null
 
 [node name="AudioSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1"]
 layout_mode = 2
@@ -229,7 +228,6 @@ focus_neighbor_bottom = NodePath("../../MusicVBox/MusicSetting/MusicCheck")
 focus_next = NodePath("../../MusicVBox/MusicSetting/MusicCheck")
 focus_previous = NodePath("../AudioSetting/AudioCheck")
 max_value = 3.0
-script = null
 
 [node name="MusicVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer"]
 layout_mode = 2
@@ -266,7 +264,6 @@ focus_neighbor_bottom = NodePath("../../../../../Row2/ControlsSettings/VBoxConta
 focus_next = NodePath("../../../../../Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting/GameplayMouseCaptureCheck")
 focus_previous = NodePath("../MusicSetting/MusicCheck")
 max_value = 3.0
-script = null
 
 [node name="Row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

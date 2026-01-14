@@ -17,7 +17,14 @@ const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_bod
 @onready var parent: Node2D = get_parent()
 @onready var hazard_detector: Area2D = $HazardDetector
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var jump_sound_default_vol: float = jump_sound.volume_linear
 @onready var land_sound: AudioStreamPlayer2D = $LandSound
+
+var cam_ctrl: Node2D
+
+
+func _ready() -> void:
+	jump_sound.volume_linear *= Settings.audio_val
 
 
 func _physics_process(delta: float) -> void:
@@ -30,7 +37,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("jump") and coyote_timer > 0:
 		velocity.y = JUMP
-		jump_sound.play()
+		if Settings.audio:
+			jump_sound.volume_linear = jump_sound_default_vol * Settings.audio_val
+			jump_sound.play()
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= JUMP_CUT_MULTIPLYER
 	
@@ -44,6 +53,7 @@ func _physics_process(delta: float) -> void:
 
 
 func die() -> void:
+	cam_ctrl.screenshake(16, 0.08)
 	var dead_body: RigidBody2D = DEAD_BODY_SCENE.instantiate()
 	parent.call_deferred("add_child", dead_body)
 	dead_body.global_position = global_position

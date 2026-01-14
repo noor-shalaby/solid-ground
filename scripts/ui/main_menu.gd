@@ -1,12 +1,19 @@
-extends Control
+extends ScreenManager
 
 
-@onready var viewport: Viewport = get_viewport()
-@onready var play_button: Buttona = %PlayButton
+@onready var title_screen: Screen = $TitleScreen
+@onready var settings_screen: Screen = $SettingsScreen
 
 
-func _input(event: InputEvent) -> void:
-	if viewport.gui_get_focus_owner():
-		return
-	if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right") or event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_focus_next"):
-		play_button.grab_focus()
+func _ready() -> void:
+	super()
+	
+	main_screen = title_screen
+	current_screen = title_screen
+
+
+func _on_settings_button_pressed() -> void:
+	switch_screen(settings_screen)
+
+func _on_back_button_pressed() -> void:
+	switch_screen(title_screen)

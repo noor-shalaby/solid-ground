@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://gxanohvbl7e1"]
+[gd_scene load_steps=9 format=3 uid="uid://gxanohvbl7e1"]
 
 [ext_resource type="Texture2D" uid="uid://bw7nw666wjmes" path="res://assets/background.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://j1th87sh4kcl" path="res://scripts/ui/main_menu.gd" id="1_uhagc"]
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://pvs5iaw4i4eh" path="res://scripts/ui/button_play.gd" id="3_bqqt6"]
 [ext_resource type="FontFile" uid="uid://bj0kn6qhkgasi" path="res://assets/Montserrat-Black.ttf" id="3_btxxm"]
+[ext_resource type="Script" uid="uid://cve8sqj15bsq2" path="res://scripts/ui/screen.gd" id="3_wb0q5"]
 [ext_resource type="Script" uid="uid://kj227nx4rsgf" path="res://scripts/ui/button_quit.gd" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://c0p5h8tci88bo" path="res://scenes/ui/settings_screen.tscn" id="8_wb0q5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -15,6 +17,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhagc")
+tween_trans = 2
+tween_ease = 1
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,16 +29,26 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_l6cm7")
 
-[node name="Title" type="Label" parent="."]
+[node name="TitleScreen" type="Control" parent="." node_paths=PackedStringArray("init_focus_node")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_wb0q5")
+init_focus_node = NodePath("ButtonMenu/PlayButton")
+
+[node name="Title" type="Label" parent="TitleScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -533.0
+offset_left = -536.0
 offset_top = -284.0
-offset_right = 533.0
+offset_right = 536.0
 offset_bottom = -127.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -42,7 +56,7 @@ theme_override_fonts/font = ExtResource("3_btxxm")
 theme_override_font_sizes/font_size = 128
 text = "SOLID GROUND"
 
-[node name="ButtonMenu" type="VBoxContainer" parent="."]
+[node name="ButtonMenu" type="VBoxContainer" parent="TitleScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,14 +64,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -256.0
-offset_top = -60.0
+offset_top = -64.0
 offset_right = 256.0
-offset_bottom = 108.0
+offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="PlayButton" parent="ButtonMenu" instance=ExtResource("2_ekxnf")]
+[node name="PlayButton" parent="TitleScreen/ButtonMenu" instance=ExtResource("2_ekxnf")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
@@ -65,9 +79,23 @@ script = ExtResource("3_bqqt6")
 target_scene_path = "uid://p8bxjnfemtjy"
 sfx = null
 
-[node name="QuitButton" parent="ButtonMenu" instance=ExtResource("2_ekxnf")]
+[node name="SettingsButton" parent="TitleScreen/ButtonMenu" instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="QuitButton" parent="TitleScreen/ButtonMenu" instance=ExtResource("2_ekxnf")]
 layout_mode = 2
 text = "Quit
 "
 script = ExtResource("4_wu84c")
 sfx = null
+
+[node name="SettingsScreen" parent="." instance=ExtResource("8_wb0q5")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="TitleScreen/ButtonMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/MarginContainer/Header/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="SettingsScreen"]

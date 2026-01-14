@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1yptqm37v578"]
+[gd_scene load_steps=3 format=3 uid="uid://b1yptqm37v578"]
 
 [ext_resource type="Script" uid="uid://ddja3txtmd0nl" path="res://scripts/autoload/audio_manager.gd" id="1_dwcjb"]
+[ext_resource type="AudioStream" uid="uid://sedji83a2wk6" path="res://assets/audio/Cosmic.mp3" id="2_xa1qs"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_dwcjb")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xa1qs")
+volume_db = -16.0
+autoplay = true
+parameters/looping = false

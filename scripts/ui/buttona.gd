@@ -33,7 +33,7 @@ func unfocus() -> void:
 
 
 func _on_pressed() -> void:
-	if sfx:
+	if sfx and Settings.audio:
 		AudioManager.play_oneshot(sfx)
 
 

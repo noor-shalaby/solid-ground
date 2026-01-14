@@ -7,7 +7,8 @@ extends CanvasLayer
 @onready var scene_tree: SceneTree = get_tree()
 @onready var scene_root: Node = $/root
 @onready var dim: ColorRect = $Dim
-@onready var tran_sound: AudioStreamPlayer2D = $TransSound
+@onready var trans_sound: AudioStreamPlayer2D = $TransSound
+@onready var trans_sound_default_vol: float = trans_sound.volume_linear
 
 var tween: Tween
 
@@ -17,7 +18,10 @@ func _ready() -> void:
 
 func trans_to_scene(scene_path: String = "") -> void:
 	scene_tree.paused = true
-	tran_sound.play()
+	
+	if Settings.audio:
+		trans_sound.volume_linear = trans_sound_default_vol * Settings.audio_val
+		trans_sound.play()
 	
 	show()
 	reset_tween()

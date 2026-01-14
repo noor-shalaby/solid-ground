@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://53dba8egiepl"]
+[gd_scene load_steps=9 format=3 uid="uid://53dba8egiepl"]
 
 [ext_resource type="Script" uid="uid://cwxmg27s6vtp8" path="res://scripts/ui/pause_menu.gd" id="1_6tw0m"]
+[ext_resource type="Script" uid="uid://cve8sqj15bsq2" path="res://scripts/ui/screen.gd" id="2_2rlsb"]
 [ext_resource type="FontFile" uid="uid://dy2qo37iqqdry" path="res://assets/Montserrat-ExtraBold.ttf" id="2_8fwbo"]
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_f6eus"]
 [ext_resource type="Script" uid="uid://cogtwyr4ly3b" path="res://scripts/ui/button_restart.gd" id="4_8fwbo"]
 [ext_resource type="Script" uid="uid://pvs5iaw4i4eh" path="res://scripts/ui/button_play.gd" id="4_8uki6"]
 [ext_resource type="Script" uid="uid://kj227nx4rsgf" path="res://scripts/ui/button_quit.gd" id="5_0bnpd"]
+[ext_resource type="PackedScene" uid="uid://c0p5h8tci88bo" path="res://scenes/ui/settings_screen.tscn" id="7_8fwbo"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -21,23 +23,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="PanelContainer" parent="Dim"]
-custom_minimum_size = Vector2(512, 256)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="PauseScreen" type="Control" parent="." node_paths=PackedStringArray("init_focus_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2rlsb")
+init_focus_node = NodePath("Margin/Menu/ResumeButton")
 
-[node name="Margin" type="MarginContainer" parent="Dim/Panel"]
-layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="PauseScreen"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Menu" type="VBoxContainer" parent="Dim/Panel/Margin"]
+[node name="Menu" type="VBoxContainer" parent="PauseScreen/Margin"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="PausedLabel" type="Label" parent="Dim/Panel/Margin/Menu"]
+[node name="PausedLabel" type="Label" parent="PauseScreen/Margin/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8fwbo")
@@ -45,26 +55,39 @@ theme_override_font_sizes/font_size = 64
 text = "Paused"
 horizontal_alignment = 1
 
-[node name="ResumeButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
+[node name="ResumeButton" parent="PauseScreen/Margin/Menu" instance=ExtResource("3_f6eus")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
+sfx = null
 
-[node name="RestartButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
+[node name="RestartButton" parent="PauseScreen/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2
 text = "Restart"
 script = ExtResource("4_8fwbo")
 
-[node name="MainMenuButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
+[node name="SettingsButton" parent="PauseScreen/Margin/Menu" instance=ExtResource("3_f6eus")]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="MainMenuButton" parent="PauseScreen/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2
 text = "Main Menu"
 script = ExtResource("4_8uki6")
 target_scene_path = "uid://gxanohvbl7e1"
 
-[node name="QuitButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
+[node name="QuitButton" parent="PauseScreen/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2
 text = "Quit
 "
 script = ExtResource("5_0bnpd")
 
-[connection signal="pressed" from="Dim/Panel/Margin/Menu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[node name="SettingsScreen" parent="." instance=ExtResource("7_8fwbo")]
+visible = false
+
+[connection signal="pressed" from="PauseScreen/Margin/Menu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseScreen/Margin/Menu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/MarginContainer/Header/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="SettingsScreen"]

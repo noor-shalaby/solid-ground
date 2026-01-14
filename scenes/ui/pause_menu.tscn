@@ -65,6 +65,7 @@ sfx = null
 layout_mode = 2
 text = "Restart"
 script = ExtResource("4_8fwbo")
+sfx = null
 
 [node name="SettingsButton" parent="PauseScreen/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2
@@ -76,12 +77,14 @@ layout_mode = 2
 text = "Main Menu"
 script = ExtResource("4_8uki6")
 target_scene_path = "uid://gxanohvbl7e1"
+sfx = null
 
 [node name="QuitButton" parent="PauseScreen/Margin/Menu" instance=ExtResource("3_f6eus")]
 layout_mode = 2
 text = "Quit
 "
 script = ExtResource("5_0bnpd")
+sfx = null
 
 [node name="SettingsScreen" parent="." instance=ExtResource("7_8fwbo")]
 visible = false

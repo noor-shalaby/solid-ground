@@ -9,6 +9,7 @@ enum POP_DIRS {
 }
 @export var pop_dir: POP_DIRS = POP_DIRS.UP
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var pop_sound: AudioStreamPlayer2D = $PopSound
 @onready var pop_sound_default_vol: float = pop_sound.volume_linear
 
@@ -24,6 +25,8 @@ func pop() -> void:
 			tween.tween_property(self, "position:x", position.x - Constants.TILE_SIZE, 0.05)
 		POP_DIRS.RIGHT:
 			tween.tween_property(self, "position:x", position.x + Constants.TILE_SIZE, 0.05)
+	
+	anim_player.play("pop")
 	
 	if Settings.audio:
 		pop_sound.volume_linear = pop_sound_default_vol * Settings.audio_val

@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 
 
 func die() -> void:
-	CamCtrl.screenshake(16, 0.08)
+	CamCtrl.screenshake(24, 0.1)
 	var dead_body: RigidBody2D = DEAD_BODY_SCENE.instantiate()
 	parent.call_deferred("add_child", dead_body)
 	dead_body.global_position = global_position

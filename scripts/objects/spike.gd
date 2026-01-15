@@ -27,6 +27,7 @@ func pop() -> void:
 			tween.tween_property(self, "position:x", position.x + Constants.TILE_SIZE, 0.05)
 	
 	anim_player.play("pop")
+	CamCtrl.screenshake(16, 0.08)
 	
 	if Settings.audio:
 		pop_sound.volume_linear = pop_sound_default_vol * Settings.audio_val

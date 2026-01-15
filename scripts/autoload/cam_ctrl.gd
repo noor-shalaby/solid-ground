@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var host: CharacterBody2D
+var host: CharacterBody2D
 
 
 var shake_intensity: float = 0.0
@@ -18,9 +18,10 @@ var noise: FastNoiseLite = FastNoiseLite.new()
 @onready var cam: Camera2D = $Camera
 @onready var viewport_rect: Rect2 = get_viewport_rect()
 
+
 func _ready() -> void:
-	@warning_ignore("unsafe_property_access")
-	host.cam_ctrl = self
+	position = get_viewport().get_visible_rect().size / 2
+	disable()
 
 
 func _process(delta: float) -> void:
@@ -46,6 +47,14 @@ func _process(delta: float) -> void:
 		shake_intensity = max(shake_intensity - shake_decay * delta, 0)
 	else:
 		cam.offset = lerp(cam.offset, Vector2.ZERO, 10.5 * delta)
+
+
+func enable() -> void:
+	cam.enabled = true
+	cam.make_current()
+
+func disable() -> void:
+	cam.enabled = false
 
 
 func screenshake(intensity: int, dur: float) -> void:

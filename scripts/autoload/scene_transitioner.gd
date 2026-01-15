@@ -33,6 +33,11 @@ func trans_to_scene(scene_path: String = "") -> void:
 	else:
 		scene_tree.reload_current_scene()
 	
+	if scene_tree.current_scene is Control:
+		CamCtrl.disable()
+	else:
+		CamCtrl.enable()
+	
 	await scene_root.child_entered_tree
 	fade_out()
 

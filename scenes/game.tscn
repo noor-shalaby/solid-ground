@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0rqbsf1jd63k" path="res://scenes/objects/platform.tscn" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://cfjihj3e4ih2o" path="res://assets/spike_tileset.svg" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://53dba8egiepl" path="res://scenes/ui/pause_menu.tscn" id="8_gee14"]
-[ext_resource type="PackedScene" uid="uid://c7ldfwwqickiy" path="res://scenes/cam_ctrl.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://c7ldfwwqickiy" path="res://scenes/autoload/cam_ctrl.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwrxv"]
 texture = ExtResource("1_uwrxv")

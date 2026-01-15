@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7ldfwwqickiy"]
 
-[ext_resource type="Script" uid="uid://bxte3isy8q5l3" path="res://scripts/cam_ctrl.gd" id="1_2su21"]
+[ext_resource type="Script" uid="uid://bxte3isy8q5l3" path="res://scripts/autoload/cam_ctrl.gd" id="1_2su21"]
 
 [node name="CamCtrl" type="Node2D"]
 script = ExtResource("1_2su21")
@@ -11,5 +11,4 @@ limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
 limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 8.0

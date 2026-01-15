@@ -19,6 +19,7 @@ config/icon="uid://cvr5umn1mjtor"
 [autoload]
 
 AudioManager="*res://scenes/autoload/audio_manager.tscn"
+CamCtrl="*res://scenes/autoload/cam_ctrl.tscn"
 Constants="*res://scripts/autoload/constants.gd"
 EventBus="*res://scripts/autoload/event_bus.gd"
 SceneTransitioner="*res://scenes/autoload/scene_transitioner.tscn"

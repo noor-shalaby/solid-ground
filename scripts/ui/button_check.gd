@@ -1,7 +1,7 @@
 extends Buttona
 
 
-@export var pop_scale: float = 1.6
+@export var pop_scale: float = 2.0
 
 
 func _on_pressed() -> void:

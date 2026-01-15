@@ -3,7 +3,6 @@ extends Node2D
 
 var host: CharacterBody2D
 
-
 var shake_intensity: float = 0.0
 var active_shake_dur: float = 0.0
 
@@ -13,7 +12,6 @@ var shake_time: float = 0.0
 var shake_time_speed: float = 20.0
 
 var noise: FastNoiseLite = FastNoiseLite.new()
-
 
 @onready var cam: Camera2D = $Camera
 @onready var viewport_rect: Rect2 = get_viewport_rect()

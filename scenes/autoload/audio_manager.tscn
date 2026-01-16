@@ -12,3 +12,5 @@ stream = ExtResource("2_xa1qs")
 volume_db = -16.0
 autoplay = true
 parameters/looping = false
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

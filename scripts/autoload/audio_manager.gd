@@ -31,3 +31,8 @@ func play_oneshot(sfx: PackedScene = CLICK_SOUND_SCENE) -> void:
 	
 	var oneshot_sfx: AudioStreamPlayer = sfx.instantiate()
 	add_child(oneshot_sfx)
+
+
+func _on_music_finished() -> void:
+	await scene_tree.create_timer(4.0).timeout
+	play_music()

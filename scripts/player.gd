@@ -51,7 +51,6 @@ func _physics_process(delta: float) -> void:
 	
 	var dir: float = Input.get_axis("left", "right")
 	if dir:
-		game_just_started = false
 		velocity.x = move_toward(velocity.x, SPEED * dir, ACCEL * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECEL * delta)

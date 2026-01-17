@@ -32,7 +32,7 @@ var audio_val: float = 1.0:
 	set = set_audio_val
 func set_audio_val(new_val: float) -> void:
 	audio_val = new_val
-	AudioManager.music_player.volume_linear = AudioManager.music_default_volume_linear * audio_val * music_val
+	AudioManager.music_player.volume_linear = AudioManager.music_default_vol * audio_val * music_val
 
 var music: bool = true:
 	set = set_music
@@ -46,7 +46,7 @@ var music_val: float = 1.0:
 	set = set_music_val
 func set_music_val(new_val: float) -> void:
 		music_val = new_val
-		AudioManager.music_player.volume_linear = AudioManager.music_default_volume_linear * audio_val * music_val
+		AudioManager.music_player.volume_linear = AudioManager.music_default_vol * audio_val * music_val
 
 
 var gameplay_mouse_capture: bool = true:

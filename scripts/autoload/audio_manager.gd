@@ -8,14 +8,14 @@ var music_fade_out: float = 0.3
 
 @onready var scene_tree: SceneTree = get_tree()
 @onready var music_player: AudioStreamPlayer = $Music
-@onready var music_default_volume_linear: float = music_player.volume_linear
+@onready var music_default_vol: float = music_player.volume_linear
 
 
 func play_music() -> void:
 	if not Settings.audio or not Settings.music or music_player.playing:
 		return
 	
-	music_player.volume_linear = music_default_volume_linear * Settings.audio_val * Settings.music_val
+	music_player.volume_linear = music_default_vol * Settings.audio_val * Settings.music_val
 	music_player.play()
 
 func stop_music() -> void:

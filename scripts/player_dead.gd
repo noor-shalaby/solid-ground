@@ -9,6 +9,9 @@ func _ready() -> void:
 	blink()
 	create_tween().tween_method(set_bw, 0.0, 1.0, death_sound.stream.get_length())
 	
+	Engine.time_scale = 0.1
+	await get_tree().create_timer(0.2, true, false, true).timeout
+	Engine.time_scale = 1.0
 	if Settings.audio:
 		death_sound.volume_linear *= Settings.audio_val
 		death_sound.play()

@@ -1,9 +1,6 @@
 extends Buttona
 
 
-@export var pop_scale: float = 2.0
-
-
 func _on_pressed() -> void:
 	pop_animation()
 	if sfx and Settings.audio:
@@ -11,10 +8,3 @@ func _on_pressed() -> void:
 			AudioManager.play_oneshot(AudioManager.CLICK_SOUND_SCENE)
 		else:
 			AudioManager.play_oneshot(AudioManager.BACK_SOUND_SCENE)
-
-
-func pop_animation(dur: float = 0.1) -> void:
-	var _tween: Tween = create_tween()
-	var pre_anim_scale: Vector2 = scale
-	_tween.tween_property(self, "scale", Vector2.ONE * pop_scale, dur / 2)
-	_tween.tween_property(self, "scale", pre_anim_scale, dur)

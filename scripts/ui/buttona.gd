@@ -5,6 +5,8 @@ extends Button
 @export var hover_scale: float = 1.1
 @export var hover_animation_duration: float = 0.1
 @export var unhover_animation_duration: float = 0.2
+@export var pop_on_pressed: bool = false
+@export var pop_scale: float = 2.0
 @export var sfx: PackedScene = AudioManager.CLICK_SOUND_SCENE
 
 var tween: Tween
@@ -32,7 +34,16 @@ func unfocus() -> void:
 	tween.tween_property(self, "scale", Vector2.ONE, unhover_animation_duration)
 
 
+func pop_animation(dur: float = 0.1) -> void:
+	var _tween: Tween = create_tween()
+	var pre_anim_scale: Vector2 = scale
+	_tween.tween_property(self, "scale", Vector2.ONE * pop_scale, dur / 2)
+	_tween.tween_property(self, "scale", pre_anim_scale, dur)
+
+
 func _on_pressed() -> void:
+	if pop_on_pressed:
+		pop_animation()
 	if sfx and Settings.audio:
 		AudioManager.play_oneshot(sfx)
 

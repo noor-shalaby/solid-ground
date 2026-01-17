@@ -12,6 +12,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("4_1lgxl")
 hover_scale = 1.3
+pop_on_pressed = true
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

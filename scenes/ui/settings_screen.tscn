@@ -316,6 +316,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Reset"
+pop_on_pressed = true
+pop_scale = 1.5
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck" to="." method="_on_fullscreen_check_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSetting/ScreenshakeCheck" to="." method="_on_screenshake_check_pressed"]

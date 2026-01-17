@@ -6,7 +6,7 @@ extends Button
 @export var hover_animation_duration: float = 0.1
 @export var unhover_animation_duration: float = 0.2
 @export var pop_on_pressed: bool = false
-@export var pop_scale: float = 2.0
+@export var pop_scale: float = 1.5
 @export var sfx: PackedScene = AudioManager.CLICK_SOUND_SCENE
 
 var tween: Tween

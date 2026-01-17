@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://csnba64dsq25g"]
+[gd_scene load_steps=7 format=3 uid="uid://csnba64dsq25g"]
 
 [ext_resource type="Texture2D" uid="uid://c117fae5xouui" path="res://assets/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://hhmhou58ajtl" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="AudioStream" uid="uid://cswaefx30siur" path="res://assets/audio/jump_3.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://cgsjg2oadih3r" path="res://assets/audio/land.wav" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(80, 80)
@@ -33,6 +34,9 @@ shape = SubResource("RectangleShape2D_qhqgy")
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qhqgy")
 volume_db = 8.0
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqkch")
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="body_entered" from="HazardDetector" to="." method="_on_hazard_detector_body_entered"]

@@ -21,6 +21,8 @@ const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_bod
 @onready var hazard_detector: Area2D = $HazardDetector
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var jump_sound_default_vol: float = jump_sound.volume_linear
+@onready var land_sound: AudioStreamPlayer2D = $LandSound
+@onready var land_sound_default_vol: float = land_sound.volume_linear
 
 var cam_ctrl: Node2D
 var was_on_floor: bool = true
@@ -59,6 +61,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if is_on_floor() and not was_on_floor and not game_just_started:
 		squash()
+		if Settings.audio:
+			land_sound.volume_linear = land_sound_default_vol * Settings.audio_val
+			land_sound.play()
 
 
 func squash_n_stretch(x: float, y: float) -> void:

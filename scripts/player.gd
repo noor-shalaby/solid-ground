@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		stretch()
 		if Settings.audio:
 			jump_sound.volume_linear = jump_sound_default_vol * Settings.audio_val
+			jump_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 			jump_sound.play()
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= JUMP_CUT_MULTIPLYER
@@ -63,6 +64,7 @@ func _physics_process(delta: float) -> void:
 		squash()
 		if Settings.audio:
 			land_sound.volume_linear = land_sound_default_vol * Settings.audio_val
+			land_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 			land_sound.play()
 
 

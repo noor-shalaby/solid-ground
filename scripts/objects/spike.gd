@@ -31,4 +31,5 @@ func pop() -> void:
 	
 	if Settings.audio:
 		pop_sound.volume_linear = pop_sound_default_vol * Settings.audio_val
+		pop_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 		pop_sound.play()

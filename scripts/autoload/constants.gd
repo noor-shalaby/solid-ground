@@ -2,6 +2,7 @@ extends Node
 
 
 const TILE_SIZE: int = 64
+const PITCH_SHIFTING: float = 0.1
 
 const SAVE_PATH: String = "user://"
 

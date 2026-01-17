@@ -8,6 +8,7 @@ const DECEL: float = 3000.0
 const JUMP: float = -1500.0
 const JUMP_CUT_MULTIPLYER: float = 0.5
 const COYOTE_TIME: float = 0.15
+const ELASTICITY: float = 0.2
 
 const DEATH_MAX_IMPULSE: float = 2000.0
 var death_bounce_impulse: Vector2 = Vector2(randf_range(-DEATH_MAX_IMPULSE, DEATH_MAX_IMPULSE), -DEATH_MAX_IMPULSE)
@@ -15,11 +16,15 @@ var death_bounce_impulse: Vector2 = Vector2(randf_range(-DEATH_MAX_IMPULSE, DEAT
 const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_body_scene)
 
 @onready var parent: Node2D = get_parent()
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite_default_pos_y: float = sprite.position.y
 @onready var hazard_detector: Area2D = $HazardDetector
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var jump_sound_default_vol: float = jump_sound.volume_linear
 
 var cam_ctrl: Node2D
+var was_on_floor: bool = true
+var game_just_started: bool = true
 
 
 func _ready() -> void:
@@ -35,7 +40,9 @@ func _physics_process(delta: float) -> void:
 		coyote_timer -= delta
 	
 	if Input.is_action_pressed("jump") and coyote_timer > 0:
+		game_just_started = false
 		velocity.y = JUMP
+		stretch()
 		if Settings.audio:
 			jump_sound.volume_linear = jump_sound_default_vol * Settings.audio_val
 			jump_sound.play()
@@ -44,11 +51,30 @@ func _physics_process(delta: float) -> void:
 	
 	var dir: float = Input.get_axis("left", "right")
 	if dir:
+		game_just_started = false
 		velocity.x = move_toward(velocity.x, SPEED * dir, ACCEL * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECEL * delta)
 	
+	was_on_floor = is_on_floor()
 	move_and_slide()
+	if is_on_floor() and not was_on_floor and not game_just_started:
+		squash()
+
+
+func squash_n_stretch(x: float, y: float) -> void:
+	var tween_scale: Tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	var tween_pos: Tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween_scale.tween_property(sprite, "scale", Vector2(x, y), 0.1)
+	tween_pos.tween_property(sprite, "position:y", sprite.position.y + (1.0 - y) * 40.0, 0.1)
+	tween_scale.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.1)
+	tween_pos.tween_property(sprite, "position:y", sprite_default_pos_y, 0.1)
+
+func squash() -> void:
+	squash_n_stretch(1.0 + ELASTICITY, 1.0 - ELASTICITY)
+
+func stretch() -> void:
+	squash_n_stretch(1.0 - ELASTICITY, 1.0 + ELASTICITY)
 
 
 func die() -> void:

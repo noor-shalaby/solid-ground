@@ -57,9 +57,8 @@ texture = ExtResource("1_yqjtg")
 [node name="PauseMenu" parent="." instance=ExtResource("8_gee14")]
 visible = false
 
-[node name="CamCtrl" parent="." node_paths=PackedStringArray("host") instance=ExtResource("9_0tnpc")]
+[node name="CamCtrl" parent="." instance=ExtResource("9_0tnpc")]
 position = Vector2(960, 544)
-host = NodePath("../Player")
 
 [node name="SpikeTraps" type="Node2D" parent="."]
 

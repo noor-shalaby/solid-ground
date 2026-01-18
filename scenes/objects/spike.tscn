@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b55x2rgif0nsf" path="res://assets/audio/fire_1.wav" id="3_d2mqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4qhk"]
-size = Vector2(128, 48)
+size = Vector2(128, 64)
 
 [sub_resource type="Animation" id="Animation_cnqie"]
 length = 0.001
@@ -229,7 +229,6 @@ position = Vector2(32, 0)
 texture = ExtResource("2_d2mqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u4qhk")
 
 [node name="PopSound" type="AudioStreamPlayer2D" parent="."]

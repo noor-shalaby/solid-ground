@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	# Emit both particles
 	for particle: CPUParticles2D in get_children():
 		particle.emitting = true
 

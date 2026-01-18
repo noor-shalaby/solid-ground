@@ -23,16 +23,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	# Follow the player
 	if host:
 		global_position = host.global_position
-		
-		var mouse_pos: Vector2 = get_global_mouse_position()
-		cam.position.x = lerp(cam.position.x, (mouse_pos.x - host.global_position.x) / (viewport_rect.size.x / 2.0) * 128, 47.0 * delta)
-		cam.position.y = lerp(cam.position.y, (mouse_pos.y - host.global_position.y) / (viewport_rect.size.y / 2.0) * 128, 47.0 * delta)
 	
 	if not Settings.screenshake:
 		return
 	
+	# Screenshake
 	if active_shake_dur > 0.0:
 		shake_time += shake_time_speed * delta
 		active_shake_dur -= delta

@@ -17,39 +17,48 @@ func _ready() -> void:
 
 
 func trans_to_scene(scene_path: String = "") -> void:
+	# Pause the current scene
 	scene_tree.paused = true
 	
+	# Play the scene transition sound
 	if Settings.audio:
 		trans_sound.volume_linear = trans_sound_default_vol * Settings.audio_val
 		trans_sound.play()
 	
+	# Show and fade the screen into black
 	show()
 	reset_tween()
 	tween.tween_property(dim, "color:a", 1.0, fade_in_duration)
 	await tween.finished
 	
+	# Change or reload scene
 	if scene_path:
 		scene_tree.change_scene_to_file(scene_path)
 	else:
 		scene_tree.reload_current_scene()
 	
+	# Disable the camera if the scene is a UI screen and enable it otherwise
 	if scene_tree.current_scene is Control:
 		CamCtrl.disable()
 	else:
 		CamCtrl.enable()
 	
+	# Wait till the new scene has loaded and then fade out to reveal it
 	await scene_root.child_entered_tree
 	fade_out()
 
 
 func quit() -> void:
+	# Pause the current scene
 	scene_tree.paused = true
 	
+	# Show and fade the screen into black
 	show()
 	reset_tween()
 	tween.tween_property(dim, "color:a", 1.0, fade_in_duration)
 	await tween.finished
 	
+	# Quit the game entirely
 	scene_tree.quit()
 
 

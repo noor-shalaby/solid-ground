@@ -38,6 +38,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# Coyote time and gravity
 	var coyote_timer: float
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
@@ -45,48 +46,58 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * WEIGHT * delta
 		coyote_timer -= delta
 	
+	# Jump
 	if Input.is_action_pressed("jump") and coyote_timer > 0:
 		game_just_started = false
 		velocity.y = JUMP
 		stretch()
+		# Jump sound
 		if Settings.audio:
 			jump_sound.volume_linear = jump_sound_default_vol * Settings.audio_val
 			jump_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 			jump_sound.play()
+	# Variable jump height
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= JUMP_CUT_MULTIPLYER
 	
+	# Move left and right
 	var dir: float = Input.get_axis("left", "right")
 	if dir:
 		velocity.x = move_toward(velocity.x, SPEED * dir, ACCEL * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECEL * delta)
 	
+	# Land
 	was_on_floor = is_on_floor()
 	move_and_slide()
 	if is_on_floor() and not was_on_floor and not game_just_started:
 		squash()
 		
+		# Emit dust puff particles
 		var dust_puff: Node2D = DUST_PUFF_SCENE.instantiate()
 		dust_puff.global_position = global_position
 		parent.add_child(dust_puff)
 		
+		# Land sound
 		if Settings.audio:
 			land_sound.volume_linear = land_sound_default_vol * Settings.audio_val
 			land_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 			land_sound.play()
 	
+	# Emit ghost trail particles when the player is moving fast enough
 	if velocity.length() > SPEED * 2.5:
 		ghost_trail.emitting = true
 
 
 func _input(event: InputEvent) -> void:
+	# Emit dust trail particles when the player starts moving right or left on the ground
 	if event.is_action_pressed("right") and is_on_floor():
 		dust_trail_left.emitting = true
 	elif event.is_action_pressed("left") and is_on_floor():
 		dust_trail_right.emitting = true
 
 
+# Base function for squashing and stretching animations
 func squash_n_stretch(x: float, y: float) -> void:
 	var tween_scale: Tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	var tween_pos: Tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -95,9 +106,11 @@ func squash_n_stretch(x: float, y: float) -> void:
 	tween_scale.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.1)
 	tween_pos.tween_property(sprite, "position:y", sprite_default_pos_y, 0.1)
 
+# Squash vertically and stretch horizontally and then animate back to normal
 func squash() -> void:
 	squash_n_stretch(1.0 + ELASTICITY, 1.0 - ELASTICITY)
 
+# Stretch vertically and squash horizontally and then animate back to normal
 func stretch() -> void:
 	squash_n_stretch(1.0 - ELASTICITY, 1.0 + ELASTICITY)
 
@@ -116,6 +129,7 @@ func _on_hazard_detector_body_entered(_body: Node2D) -> void:
 	die()
 
 func _on_hazard_detector_area_entered(_area: Area2D) -> void:
+	# Calculate the direction of the death bounce impulse
 	if _area is Spike:
 		@warning_ignore("unsafe_property_access")
 		match _area.pop_dir:

@@ -6,14 +6,18 @@ extends RigidBody2D
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 func _ready() -> void:
+	# Shader VFX
 	blink()
 	create_tween().tween_method(set_bw, 0.0, 1.0, death_sound.stream.get_length())
 	
+	# Time Stop & Camera Zoom Effect
 	Engine.time_scale = 0.1
 	CamCtrl.cam.zoom = Vector2(1.05, 1.05)
 	await get_tree().create_timer(0.2, true, false, true).timeout
 	Engine.time_scale = 1.0
 	CamCtrl.cam.zoom = Vector2.ONE
+	
+	# Death SFX
 	if Settings.audio:
 		death_sound.volume_linear *= Settings.audio_val
 		death_sound.play()
@@ -30,6 +34,7 @@ func set_bw(value: float) -> void:
 	mat.set_shader_parameter("bw_amount", value)
 
 
+# Restart level when the body stops moving
 func _on_sleeping_state_changed() -> void:
 	if sleeping:
 		SceneTransitioner.trans_to_scene()

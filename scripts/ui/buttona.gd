@@ -13,27 +13,33 @@ var tween: Tween
 
 
 func _ready() -> void:
+	# Center origin pivot
 	set_deferred("pivot_offset", size / 2)
+
+
+func refresh_tween() -> void:
+	if tween:
+		tween.kill()
+	tween = create_tween()
 
 
 func focus() -> void:
 	grab_focus()
 	grab_click_focus()
 	
-	if tween:
-		tween.kill()
-	tween = create_tween()
+	# Scale up
+	refresh_tween()
 	tween.tween_property(self, "scale", Vector2.ONE * hover_scale, hover_animation_duration)
 
 func unfocus() -> void:
 	release_focus()
 	
-	if tween:
-		tween.kill()
-	tween = create_tween()
+	# Scale down
+	refresh_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, unhover_animation_duration)
 
 
+# Scale up and then back down slowly
 func pop_animation(dur: float = 0.1) -> void:
 	var _tween: Tween = create_tween()
 	var pre_anim_scale: Vector2 = scale

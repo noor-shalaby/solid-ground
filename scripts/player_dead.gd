@@ -8,11 +8,11 @@ const HURT_SOUNDS: Array[AudioStreamWAV] = [
 	preload(Constants.FILE_UIDS.hurt_sounds[3])
 ]
 
-
 @warning_ignore("unsafe_property_access")
 @onready var mat: Material = $Sprite2D.material
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
+
 
 func _ready() -> void:
 	# Shader VFX
@@ -25,7 +25,6 @@ func _ready() -> void:
 		hurt_sound.volume_linear *= Settings.audio_val
 		hurt_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 		hurt_sound.play()
-	
 	
 	# Time Stop & Camera Zoom Effect
 	Engine.time_scale = 0.1

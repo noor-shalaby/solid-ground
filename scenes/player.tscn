@@ -40,10 +40,7 @@ collision_mask = 4
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_qhqgy")
 
-[node name="DustTrailPivot" type="Node2D" parent="."]
-show_behind_parent = true
-
-[node name="DustTrail" type="CPUParticles2D" parent="DustTrailPivot"]
+[node name="DustTrailL" type="CPUParticles2D" parent="."]
 show_behind_parent = true
 position = Vector2(-40, 0)
 emitting = false
@@ -52,6 +49,21 @@ lifetime = 0.2
 one_shot = true
 explosiveness = 0.8
 direction = Vector2(-1, 0)
+spread = 16.0
+gravity = Vector2(0, -1024)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_curve = SubResource("Curve_qlg0r")
+color_ramp = SubResource("Gradient_qlg0r")
+
+[node name="DustTrailR" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(40, 0)
+emitting = false
+texture = ExtResource("3_qlg0r")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.8
 spread = 16.0
 gravity = Vector2(0, -1024)
 initial_velocity_min = 100.0

@@ -20,8 +20,8 @@ const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_bod
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_default_pos_y: float = sprite.position.y
 @onready var hazard_detector: Area2D = $HazardDetector
-@onready var dust_trail: CPUParticles2D = $DustTrailPivot/DustTrail
-@onready var dust_trail_pivot: Node2D = $DustTrailPivot
+@onready var dust_trail_left: CPUParticles2D = $DustTrailL
+@onready var dust_trail_right: CPUParticles2D = $DustTrailR
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var jump_sound_default_vol: float = jump_sound.volume_linear
 @onready var land_sound: AudioStreamPlayer2D = $LandSound
@@ -58,7 +58,6 @@ func _physics_process(delta: float) -> void:
 	var dir: float = Input.get_axis("left", "right")
 	if dir:
 		velocity.x = move_toward(velocity.x, SPEED * dir, ACCEL * delta)
-		dust_trail_pivot.scale.x = dir
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECEL * delta)
 	
@@ -78,8 +77,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("right") or event.is_action_pressed("left")) and is_on_floor():
-		dust_trail.emitting = true
+	if event.is_action_pressed("right") and is_on_floor():
+		dust_trail_left.emitting = true
+	elif event.is_action_pressed("left") and is_on_floor():
+		dust_trail_right.emitting = true
 
 
 func squash_n_stretch(x: float, y: float) -> void:

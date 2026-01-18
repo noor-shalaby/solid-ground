@@ -13,6 +13,12 @@ const FILE_UIDS: Dictionary[String, Variant] = {
 		# vfx
 	"dust_puff_scene": "uid://dsw4ruvwbym5k",
 		# sounds
+	"hurt_sounds": [
+		"uid://kb1n1pubyf6i",
+		"uid://c84sd8ewyhire",
+		"uid://cuiui84ksbuhw",
+		"uid://6uvvxjuhngy"
+	],
 	"click_sound_scene": "uid://dbjd5elpu7hmv",
 	"back_sound_scene": "uid://c7pynfib6cqwl"
 }

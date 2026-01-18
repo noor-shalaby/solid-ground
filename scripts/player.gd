@@ -20,6 +20,7 @@ const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_bod
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_default_pos_y: float = sprite.position.y
 @onready var hazard_detector: Area2D = $HazardDetector
+@onready var ghost_trail: CPUParticles2D = $GhostTrail
 @onready var dust_trail_left: CPUParticles2D = $DustTrailL
 @onready var dust_trail_right: CPUParticles2D = $DustTrailR
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
@@ -74,6 +75,9 @@ func _physics_process(delta: float) -> void:
 			land_sound.volume_linear = land_sound_default_vol * Settings.audio_val
 			land_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 			land_sound.play()
+	
+	if velocity.length() > SPEED * 2.5:
+		ghost_trail.emitting = true
 
 
 func _input(event: InputEvent) -> void:

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsw4ruvwbym5k"]
+[gd_scene load_steps=5 format=3 uid="uid://dsw4ruvwbym5k"]
 
+[ext_resource type="Script" uid="uid://bti5p7lkb52rg" path="res://scripts/vfx/dust_puff.gd" id="1_40hx0"]
 [ext_resource type="Texture2D" uid="uid://6dehaambwgit" path="res://assets/particle_circle.png" id="1_lsxqk"]
 
 [sub_resource type="Curve" id="Curve_lsxqk"]
@@ -11,7 +12,7 @@ offsets = PackedFloat32Array(0.5, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="DustPuff" type="Node2D"]
-show_behind_parent = true
+script = ExtResource("1_40hx0")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(32, 0)
@@ -41,3 +42,5 @@ initial_velocity_min = 200.0
 initial_velocity_max = 400.0
 scale_amount_curve = SubResource("Curve_lsxqk")
 color_ramp = SubResource("Gradient_40hx0")
+
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

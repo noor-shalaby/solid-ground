@@ -13,13 +13,13 @@ const ELASTICITY: float = 0.2
 const DEATH_MAX_IMPULSE: float = 2000.0
 var death_bounce_impulse: Vector2 = Vector2(randf_range(-DEATH_MAX_IMPULSE, DEATH_MAX_IMPULSE), -DEATH_MAX_IMPULSE)
 
+const DUST_PUFF_SCENE: PackedScene = preload(Constants.FILE_UIDS.dust_puff_scene)
 const DEAD_BODY_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_dead_body_scene)
 
 @onready var parent: Node2D = get_parent()
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sprite_default_pos_y: float = sprite.position.y
 @onready var hazard_detector: Area2D = $HazardDetector
-@onready var dust_puffers: Array[Node] = $DustPuff.get_children()
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var jump_sound_default_vol: float = jump_sound.volume_linear
 @onready var land_sound: AudioStreamPlayer2D = $LandSound
@@ -63,8 +63,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if is_on_floor() and not was_on_floor and not game_just_started:
 		squash()
-		for dust_puffer: CPUParticles2D in dust_puffers:
-			dust_puffer.emitting = true
+		var dust_puff: Node2D = DUST_PUFF_SCENE.instantiate()
+		dust_puff.global_position = global_position
+		parent.add_child(dust_puff)
 		if Settings.audio:
 			land_sound.volume_linear = land_sound_default_vol * Settings.audio_val
 			land_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)

@@ -10,6 +10,8 @@ const FILE_UIDS: Dictionary[String, Variant] = {
 	# SCENES
 		# objects
 	"player_dead_body_scene": "uid://dw52c6e8h77rj",
+		# vfx
+	"dust_puff_scene": "uid://dsw4ruvwbym5k",
 		# sounds
 	"click_sound_scene": "uid://dbjd5elpu7hmv",
 	"back_sound_scene": "uid://c7pynfib6cqwl"

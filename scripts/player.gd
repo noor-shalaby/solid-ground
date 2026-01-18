@@ -59,14 +59,8 @@ func _physics_process(delta: float) -> void:
 	if dir:
 		velocity.x = move_toward(velocity.x, SPEED * dir, ACCEL * delta)
 		dust_trail_pivot.scale.x = dir
-		if is_on_floor():
-			dust_trail.emitting = true
-		else:
-			dust_trail.emitting = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECEL * delta)
-		dust_trail.emitting = false
-	
 	
 	was_on_floor = is_on_floor()
 	move_and_slide()
@@ -81,6 +75,11 @@ func _physics_process(delta: float) -> void:
 			land_sound.volume_linear = land_sound_default_vol * Settings.audio_val
 			land_sound.pitch_scale = randf_range(1.0 - Constants.PITCH_SHIFTING, 1.0 + Constants.PITCH_SHIFTING)
 			land_sound.play()
+
+
+func _input(event: InputEvent) -> void:
+	if (event.is_action_pressed("right") or event.is_action_pressed("left")) and is_on_floor():
+		dust_trail.emitting = true
 
 
 func squash_n_stretch(x: float, y: float) -> void:

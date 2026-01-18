@@ -11,8 +11,8 @@ func _ready() -> void:
 	
 	Engine.time_scale = 0.1
 	CamCtrl.cam.zoom = Vector2(1.05, 1.05)
-	await get_tree().create_timer(0.1, true, false, true).timeout
-	await create_tween().tween_property(Engine, "time_scale", 1.0, 0.1).finished
+	await get_tree().create_timer(0.2, true, false, true).timeout
+	Engine.time_scale = 1.0
 	CamCtrl.cam.zoom = Vector2.ONE
 	if Settings.audio:
 		death_sound.volume_linear *= Settings.audio_val

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsw4ruvwbym5k"]
+[gd_scene format=3 uid="uid://dsw4ruvwbym5k"]
 
 [ext_resource type="Script" uid="uid://bti5p7lkb52rg" path="res://scripts/vfx/dust_puff.gd" id="1_40hx0"]
 [ext_resource type="Texture2D" uid="uid://6dehaambwgit" path="res://assets/particle_circle.png" id="1_lsxqk"]
@@ -11,10 +11,10 @@ point_count = 2
 offsets = PackedFloat32Array(0.5, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="DustPuff" type="Node2D"]
+[node name="DustPuff" type="Node2D" unique_id=457695403]
 script = ExtResource("1_40hx0")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1259882312]
 position = Vector2(32, 0)
 emitting = false
 texture = ExtResource("1_lsxqk")
@@ -28,7 +28,7 @@ initial_velocity_max = 400.0
 scale_amount_curve = SubResource("Curve_lsxqk")
 color_ramp = SubResource("Gradient_40hx0")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=2142729606]
 position = Vector2(-32, 0)
 emitting = false
 texture = ExtResource("1_lsxqk")
